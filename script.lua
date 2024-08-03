@@ -950,7 +950,7 @@ Title_17.BorderSizePixel = 0
 Title_17.Position = UDim2.new(0.0199999996, 0, 0, 0)
 Title_17.Size = UDim2.new(0.405684769, 0, 1, 0)
 Title_17.Font = Enum.Font.Gotham
-Title_17.Text = "MM2 Admin Panel"
+Title_17.Text = "TT_QESTING HUB"
 Title_17.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title_17.TextSize = 14.000
 Title_17.TextXAlignment = Enum.TextXAlignment.Left
@@ -1427,7 +1427,7 @@ local function PIWZ_fake_script() -- Activation_8.Script
 			else
 				
 			    game.StarterGui:SetCore("SendNotification", {
-	    Title = "MM2 Admin Panel";
+	    Title = "TT_QESTING HUB";
 	    Text = "Wait for the Sheriff's death to grab the gun";
 	    Icon = "";
 	    Duration = "2";
