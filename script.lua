@@ -1,80 +1,85 @@
-print("Script Yükleniyor....")
-print("Yüklendi mi?...")
+print("Script loading....")
+print("loaded?...")
 game.StarterGui:SetCore("SendNotification", {
-	Title = "TT_QESTING Hub V1";
-	Text = "Hub Versiyonumuz V1";
+	Title = "SnapSanix Hub V2.1";
+	Text = "Hi! Hub Version 1.1 My YT Channel: @Snapsan";
+	Icon = "http://www.roblox.com/asset/?id=15076243399";
 	Duration = 10;
-	Button1 = "Tamam"
+	Button1 = "Ok"
 })
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-	Name = "TT_QESTING Hub Murder Mystery 2 [Solara]",
-	LoadingTitle = "Discordum tt_qeesting",
-	LoadingSubtitle = "by TT_QESTING",
+	Name = "SnapSanix Hub Murder Mystery 2 [Support Solara!]",
+	LoadingTitle = "My Discord snapsan_",
+	LoadingSubtitle = "by Snapsan",
 	ConfigurationSaving = {
 	   Enabled = true,
-	   FolderName = nil,
+	   FolderName = nil, -- Create a custom folder for your hub/game
 	   FileName = "Big Hub"
 	},
 	Discord = {
 	   Enabled = false,
-	   Invite = "noinvitelink", 
-	   RememberJoins = true
+	   Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+	   RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+	},
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+	   Title = "SnapSanix Hub",
+	   Subtitle = "Key System v0.1",
+	   Note = "key: 1488",
+	   FileName = "KEY", -- It is recwwwommended to use something unique as other scripts using Rayfield may overwrite your key file
+	   SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+	   GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+	   Key = {"1488"} -- List of keys wthat will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
 	}
  })
-
- local PlayerTab = Window:CreateTab("Player", 13492318225)
-
- local Section = PlayerTab:CreateSection("Diğer Hublar")
-
+ -- подраздел Player
+ local PlayerTab = Window:CreateTab("Player", 13492318225) -- Title, Image
+ --other hubs section
+ local Section = PlayerTab:CreateSection("Other Hubs")
+ --iy hub
  local Button = PlayerTab:CreateButton({
 	Name = "Infinite Yield",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "Infinite Yield Hub";
-			Text = "Yüklendi mi?";
+			Title = "SnapSanix Hub";
+			Text = "IY Loaded?";
+			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 10;
-			Button1 = "Evet";
-			Button2 = "Hayır";
+			Button1 = "Yes";
+			Button2 = "No";
 		})
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 	end,
  })
-
+ -- vynixy hub
  local Button = PlayerTab:CreateButton({
-	Name = "Infinite Yield",
+	Name = "Dex Explorer",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "Infinite Yield Hub";
-			Text = "DEX explorer Yüklendi";
+			Title = "SnapSanix Hub";
+			Text = "DEX explorer Loaded";
+			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 10;
-			Button1 = "Evet";
-			Button2 = "Hayır";
+			Button1 = "Yes";
+			Button2 = "No";
 		})
 		loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
 	end,
  })
-local UserInputService = game:GetService("UserInputService")
-
--- "Insert" tuşu basıldığında çalışacak fonksiyon
-local function onInsertPressed()
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "TT_QESTING Hub",
-        Text = "Keybind = Insert",
-        Icon = "http://www.roblox.com/asset/?id=15076243399",
-        Duration = 10,
-        Button1 = "Okay"
-    })
-    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Gi7331/scripts/main/Emote.lua"))()
-end
-
--- "Insert" tuşu basıldığında fonksiyonu çağır
-UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-    if input.KeyCode == Enum.KeyCode.Insert and not gameProcessedEvent then
-        onInsertPressed()
-    end
-end)
-
+ -- get all emotes
+ local Button = PlayerTab:CreateButton({
+	Name = "Get All Emotes [its FE and keybind = ,]",
+	Callback = function()
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "SnapSanix Hub";
+			Text = "Keybind = ,";
+			Icon = "http://www.roblox.com/asset/?id=15076243399";
+			Duration = 10;
+			Button1 = "Okay";
+		})
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Gi7331/scripts/main/Emote.lua"))()
+	end,
  })
  -- charater
  local Section = PlayerTab:CreateSection("Character")
@@ -82,7 +87,7 @@ end)
  local Toggle = PlayerTab:CreateToggle({
 	Name = "Inf Jump [DONT USE]",
 	CurrentValue = false,
-	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure Hayır overlaps
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 	Callback = function(InfiniteJumpEnabled)
         local InfiniteJumpEnabled = true
         game:GetService("UserInputService").JumpRequest:connect(function()
@@ -99,7 +104,7 @@ end)
     Increment = 1,
     Suffix = "Walkspeed",
     CurrentValue = 16,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure Hayır overlaps
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
     Callback = function(v)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
     end,
@@ -111,7 +116,7 @@ end)
     Increment = 10,
     Suffix = "JumpPower",
     CurrentValue = 10,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure Hayır overlaps
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
     Callback = function(v)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
     end,
@@ -131,7 +136,7 @@ end)
 	Callback = function()
 		setclipboard("https://forms.gle/kLxHBZfa9E58Vx5p8")
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "Copy To Clipboard!";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 10;
@@ -183,12 +188,12 @@ local Button = TeleportTab:CreateButton({
 	Name = "Teleport GUI",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "Tp GUI Loaded?";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 10;
-			Button1 = "Evet";
-			Button2 = "Hayır";
+			Button1 = "Yes";
+			Button2 = "No";
 		})
 		local panel = Instance.new("ScreenGui")
 		panel.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -310,7 +315,7 @@ local Button = TeleportTab:CreateButton({
     Name = "Teleport to Murder",
     Callback = function()
         game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "only when the knife is in inventory!";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 3;
@@ -332,7 +337,7 @@ local Button = TeleportTab:CreateButton({
     Name = "Teleport to Sheriff",
     Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "only when the gun is in inventory!";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 3;
@@ -363,7 +368,7 @@ local function TeleportToGun()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentX, currentY, currentZ)
 	else
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "Wait for the Sheriff's death to grab the gun";
 			Icon = "";
 			Duration = 2;
@@ -387,8 +392,8 @@ w})
 	Name = "GodMode [2 Lives]",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
-			Text = "2 LIVES Hayır MORE. If you are killed, you will be dead to the killer, but other players will see you. ";
+			Title = "SnapSanix Hub";
+			Text = "2 LIVES NO MORE. If you are killed, you will be dead to the killer, but other players will see you. ";
 			Icon = "http://www.roblox.com/asset/?id=6680686532";
 			Duration = 10;
 			Button1 = "Ok";
@@ -429,7 +434,7 @@ w})
 	Name = "Silent Aim [Only Sheriff]",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "I'm sorry it's hard to do that soon in a new update.";
 			Icon = "http://www.roblox.com/asset/?id=13293140775";
 			Duration = 10;
@@ -1099,14 +1104,14 @@ w})
 	Name = "Flips [FE with normal inf jump]",
 	Callback = function()
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = " FrontflipKey = Z , BackflipKey = X , Inf jump = C";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 3;
 			Button1 = "Ok"
 		})
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "TT_QESTING Hub";
+			Title = "SnapSanix Hub";
 			Text = "Wait 3 sec Loading...";
 			Icon = "http://www.roblox.com/asset/?id=15076243399";
 			Duration = 3;
